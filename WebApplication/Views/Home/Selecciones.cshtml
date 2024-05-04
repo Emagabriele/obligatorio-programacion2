@@ -1,0 +1,38 @@
+﻿@using Dominio
+@model List<Seleccion>
+
+<h1>Selecciones</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Ver Jugadores
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Seleccion s in Model)
+        {
+            <tr>
+                <td>
+                    @s.Pais.Id
+                </td>
+                <td>
+                    @s.Pais.Nombre
+                </td>
+                <td>
+                    @Html.ActionLink("Ver Jugadores", "Jugadores", "Home", new { id = s.Pais.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

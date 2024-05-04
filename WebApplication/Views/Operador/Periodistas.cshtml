@@ -1,0 +1,49 @@
+﻿@using Dominio;
+@model List<Usuario>;
+
+<h1>Periodistas</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Apellido
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Reseñas
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Usuario u in Model)
+        {
+        <tr>
+            <td>
+                @u.Id
+            </td>
+            <td>
+                @u.Nombre
+            </td>
+            <td>
+                @u.Apellido
+            </td>
+            <td>
+                @u.Email
+            </td>
+            <td>
+                @Html.ActionLink("Ver", "Reseñas", "Operador", new { id = u.Id })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

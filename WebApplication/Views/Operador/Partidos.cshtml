@@ -1,0 +1,55 @@
+﻿@using Dominio;
+@model List<Partido>;
+
+<h1>Partidos</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Fecha del partido
+            </th>
+            <th>
+                Selección 1
+            </th>
+            <th>
+                Selección 2
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Partido p in Model)
+        {
+        <tr>
+            <td>
+                @p.FechaHora
+            </td>
+            <td>
+                @p.SeleccionUno.Pais.Nombre
+            </td>
+            <td>
+                @p.SeleccionDos.Pais.Nombre
+            </td>
+            @if (!p.Finalizado)
+            {
+                <td>
+                    @Html.ActionLink("Finalizar", "Finalizar", "Operador", new { id = p.Id })
+                </td>
+            }
+            @if (p.Finalizado & p is FaseGrupo)
+            {
+                <td>
+                    @Html.ActionLink("Ver Estadisticas", "EstadisticasFaseGrupo", "Operador", new { id = p.Id })
+                </td>
+            }
+            @if (p.Finalizado & p is FaseEliminatoria)
+            {
+                <td>
+                    @Html.ActionLink("Ver Estadisticas", "EstadisticasFaseEliminatoria", "Operador", new { id = p.Id })
+                </td>
+            }
+        </tr>
+        }
+    </tbody>
+</table>

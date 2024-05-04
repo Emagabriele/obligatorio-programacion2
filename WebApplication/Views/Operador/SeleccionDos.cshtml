@@ -1,0 +1,41 @@
+﻿@using Dominio
+@model Partido
+
+<h1>Selección Dos</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Goles
+            </th>
+            <th>
+                Amarillas
+            </th>
+            <th>
+                Rojas
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Model.SeleccionDos.Pais.Nombre
+            </td>
+            <td>
+                @Html.ActionLink("Ver", "Goles", "Operador", new { id = Model.Id, idP = Model.SeleccionDos.Pais.Id })
+            </td>
+            <td>
+                @Html.ActionLink("Ver", "Amarillas", "Operador", new { id = Model.Id, idP = Model.SeleccionDos.Pais.Id })
+            </td>
+            <td>
+                @Html.ActionLink("Ver", "Rojas", "Operador", new { id = Model.Id, idP = Model.SeleccionDos.Pais.Id })
+            </td>
+        </tr>
+    </tbody>
+</table>
+

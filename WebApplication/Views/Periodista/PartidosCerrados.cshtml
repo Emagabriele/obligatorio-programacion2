@@ -1,0 +1,41 @@
+﻿@using Dominio;
+@model List<Partido>;
+
+<h1>Partidos Cerrados</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Fecha del partido
+            </th>
+            <th>
+                Selección 1
+            </th>
+            <th>
+                Selección 2
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Partido p in Model)
+        {
+        <tr>
+            <td>
+                @p.FechaHora
+            </td>
+            <td>
+                @p.SeleccionUno.Pais.Nombre
+            </td>
+            <td>
+                @p.SeleccionDos.Pais.Nombre
+            </td>
+            <td>
+                @Html.ActionLink("Hacer reseña", "Reseña", "Periodista", new { id = p.Id })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

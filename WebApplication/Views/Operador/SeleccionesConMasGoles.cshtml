@@ -1,0 +1,24 @@
+﻿@using Dominio
+@model List<Seleccion>
+
+<h1>Selecciones con más goles</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Seleccion s in Model)
+        {
+            <tr>
+                <td>
+                    @s.Pais.Nombre
+                </td>
+            </tr>              
+         }
+    </tbody>
+</table>

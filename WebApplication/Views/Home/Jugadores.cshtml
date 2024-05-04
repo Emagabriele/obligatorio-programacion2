@@ -1,0 +1,36 @@
+﻿@using Dominio
+@model List<Jugador>
+
+<h1>Jugadores</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Numero Camiseta
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Jugador j in Model)
+        {
+        <tr>
+            <td>
+                @j.Id
+            </td>
+            <td>
+                @j.NombreCompleto
+            </td>
+            <td>
+                @j.NumeroCamiseta
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

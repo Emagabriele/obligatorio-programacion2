@@ -1,0 +1,59 @@
+﻿@using Dominio;
+@model List<Reseña>;
+
+<h1>Reseñas</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Fecha
+            </th>
+            <th>
+                Titulo
+            </th>
+            <th>
+                Contenido
+            </th>
+            <th>
+                Selección 1
+            </th>
+            <th>
+                Selección 2
+            </th>
+            <th>
+                Grupo
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Reseña r in Model)
+        {
+        <tr>
+            <td>
+                @r.Partido.FechaHora
+            </td>
+            <td>
+                @r.Titulo
+            </td>
+            <td>
+                @r.Contenido
+            </td>
+            <td>
+                @r.Partido.SeleccionUno.Pais.Nombre
+            </td>
+            <td>
+                @r.Partido.SeleccionDos.Pais.Nombre
+            </td>
+            @if (r.Partido is FaseGrupo)
+            {
+                <td>
+                    @{FaseGrupo p = r.Partido as FaseGrupo;}
+                    @p.NombreGrupo
+                </td>
+            }
+        </tr>
+        }
+    </tbody>
+</table>

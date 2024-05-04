@@ -1,0 +1,40 @@
+﻿@using Dominio
+@model List<Incidencia>
+
+<h1>Goles</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tipo
+            </th>
+            <th>
+                Minuto
+            </th>
+            <th>
+                Jugador
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Incidencia i in Model)
+        {
+            if (i.Tipo == "Amarilla")
+            {
+                <tr>
+                    <td>
+                        @i.Tipo
+                    </td>
+                    <td>
+                        @i.Minuto
+                    </td>
+                    <td>
+                        @i.Jugador.NombreCompleto
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

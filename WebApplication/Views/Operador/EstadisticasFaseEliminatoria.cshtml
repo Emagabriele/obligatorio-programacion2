@@ -1,0 +1,80 @@
+﻿@using Dominio;
+@model FaseEliminatoria;
+
+<h1>Estadisticas (Fase Eliminatoria)</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Fase
+            </th>
+            <th>
+                Fecha
+            </th>
+            <th>
+                Etapa
+            </th>
+            <th>
+                Selección 1
+            </th>
+            <th>
+                Selección 2
+            </th>
+            <th>
+                Ganador
+            </th>
+            <th>
+                Alargue
+            </th>
+            <th>
+                Penales
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Eliminatoria
+            </td>
+            <td>
+                @Model.FechaHora
+            </td>
+            <th>
+                @Model.Etapa
+            </th>
+            <td>
+                @Html.ActionLink($"{Model.SeleccionUno.Pais.Nombre}", "SeleccionUno", "Operador", new { id = Model.Id })
+            </td>
+            <td>
+                @Html.ActionLink($"{Model.SeleccionDos.Pais.Nombre}", "SeleccionDos", "Operador", new { id = Model.Id })
+            </td>
+            <td>
+                @Model.Resultado
+            </td>
+            <td>
+                @if (Model.Alargue)
+                {
+                    <p>Si</p>
+                }
+                else
+                {
+                    <p>No</p>
+                }
+            </td>
+            <td>
+                @if (Model.Penales)
+                {
+                    <p>Si</p>
+                }
+                else
+                {
+                    <p>No</p>
+                }
+            </td>
+        </tr>
+    </tbody>
+
+
+</table>

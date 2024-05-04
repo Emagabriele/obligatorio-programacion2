@@ -1,0 +1,55 @@
+﻿@using Dominio;
+@model List<Partido>;
+
+<h1>Partidos entre fechas</h1>
+
+@if (Model.Count > 0)
+{
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Fecha del partido
+            </th>
+            <th>
+                Selección 1
+            </th>
+            <th>
+                Selección 2
+            </th>
+            <th>
+                Incidencias Selección 1
+            </th>
+            <th>
+                Incidencias Selección 2
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Partido p in Model)
+        {
+        <tr>
+            <td>
+                @p.FechaHora
+            </td>
+            <td>
+                @p.SeleccionUno.Pais.Nombre
+            </td>
+            <td>
+                @p.SeleccionDos.Pais.Nombre
+            </td>
+            <td>
+                @Html.ActionLink("Ver", "IncidenciasSeleccionUno", "Operador", new { id = p.Id })
+            </td>
+            <td>
+                @Html.ActionLink("Ver", "IncidenciasSeleccionDos", "Operador", new { id = p.Id }) 
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+}
+else
+{
+    <p>No hay partidos entre esas fechas</p>
+}

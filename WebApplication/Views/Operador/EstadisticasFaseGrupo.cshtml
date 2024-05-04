@@ -1,0 +1,54 @@
+﻿@using Dominio;
+@model FaseGrupo;
+
+<h1>Estadisticas (Fase Grupo)</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Fase
+            </th>
+            <th>
+                Grupo
+            </th>
+            <th>
+                Fecha
+            </th>
+            <th>
+                Selección 1
+            </th>
+            <th>
+                Selección 2
+            </th>
+            <th>
+                Resultado del partido
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Grupo
+            </td>
+            <td>
+                @Model.NombreGrupo
+            </td>
+            <td>
+                @Model.FechaHora
+            </td>
+            <td>
+                @Html.ActionLink($"{Model.SeleccionUno.Pais.Nombre}", "SeleccionUno", "Operador", new { id = Model.Id })
+            </td>
+            <td>
+                @Html.ActionLink($"{Model.SeleccionDos.Pais.Nombre}", "SeleccionDos", "Operador", new { id = Model.Id })
+            </td>
+            <td>
+                @Model.Resultado
+            </td>
+        </tr>
+    </tbody>
+
+
+</table>

@@ -1,0 +1,31 @@
+﻿<h1>Login</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label class="control-label">Email</label>
+                <input name="Email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Password</label>
+                <input name="Password" type="password" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@ViewBag.msg
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+<div class="text-right">
+    <h1 class="display-4">Credenciales de acceso</h1>
+    <p>Periodista: Fernandoniembro47@hotmail.es, 71247ESPN</p>
+    <p>Operador: Ema@gmail.com, Ema12345</p>
+    <p>Operador: Matias@gmail.com, Mati12345</p>
+</div>

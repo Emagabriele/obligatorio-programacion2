@@ -1,0 +1,40 @@
+﻿@using Dominio
+@model Partido
+
+<h1>Incidencias @Model.SeleccionUno.Pais.Nombre</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Goles
+            </th>
+            <th>
+                Amarillas
+            </th>
+            <th>
+                Rojas
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Model.SeleccionUno.Pais.Nombre
+            </td>
+            <td>
+                @Html.ActionLink("Ver", "Goles", "Operador", new { id = Model.Id, idP = Model.SeleccionUno.Pais.Id })
+            </td>
+            <td>
+                @Model.ContadorAmarillasS1()
+            </td>
+            <td>
+                @Model.ContadorRojasS1()
+            </td>
+        </tr>
+    </tbody>
+</table>
