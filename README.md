@@ -5,5 +5,3 @@ ASP.NET
 C#
 HTML
 Bootstrap
-
-Puedes verla en este enlace http://obligatorio-programacion2.somee.com/
